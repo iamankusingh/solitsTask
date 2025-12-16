@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class AddStudentController extends Controller
 {
+    // create
     public function AddStudent(Request $req)
     {
         if($req->submitBtn){
@@ -35,8 +36,30 @@ class AddStudentController extends Controller
         }
     }
 
+    // Read
     public function GetStudent(Request $req){
         $students = Students::all();
         return view('home', compact('students'));
+    }
+
+    // Update
+    public function Edit(Students $student) {
+        $students = Students::all();
+        return view('home', compact('students', 'student'));
+    }
+    public function update(Request $req, Students $student) {
+        // map request inputs to model attributes
+        $student->full_name = $req->name;
+        $student->dob = $req->dob;
+        $student->gender = $req->gender;
+        $student->phone = $req->phone;
+        $student->city = $req->city;
+        $student->course = $req->course;
+        $student->joining_year = $req->joinyear;
+        $student->roll_no = $req->rollno;
+
+        $student->save();
+
+        return redirect('/')->with('success', 'Student updated');
     }
 }
