@@ -11,9 +11,7 @@
         <header class="p-2 flex items-center justify-between bg-gray-200">
             <h1 class="text-3xl font-bold">Solits Collage</h1>
 
-            <button
-                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors duration-300"
-            >
+            <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 New Student
             </button>
         </header>
@@ -59,16 +57,16 @@
                         <option value="default" selected disabled>
                             Please select
                         </option>
-                        <option value="male">Male</option>
-                        <option value="female">FeMale</option>
-                        <option value="other">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="name">Phone Numebr</label>
                     <input
-                        type="number"
+                        type="phone"
                         name="phone"
                         id="phone"
                         required
@@ -98,9 +96,9 @@
                         <option value="default" selected disabled>
                             Please select
                         </option>
-                        <option value="bsc">BSC</option>
-                        <option value="msc">MSC</option>
-                        <option value="phd">PHD</option>
+                        <option value="BSC">BSC</option>
+                        <option value="MSC">MSC</option>
+                        <option value="PHD">PHD</option>
                     </select>
                 </div>
 
@@ -130,127 +128,76 @@
                     <input
                         type="reset"
                         value="Clear all"
-                        class="p-2 bg-white text-xl rounded"
+                        class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                     />
                     <input
                         type="submit"
                         value="Save"
                         name="submitBtn"
-                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors duration-300"
+                        class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     />
                 </div>
             </form>
-
+            
             <hr />
 
             <!-- student List -->
-            <section
-                class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
-            >
-                <div class="p-2 bg-white rounded">
-                    <p><span>Name</span>: John Doe</p>
-                    <p><span>Date of birth</span>: 01-01-2000</p>
-                    <p><span>Gender</span>: Male</p>
-                    <p><span>Phone</span>: 1234567890</p>
-                    <p><span>City</span>: Gandhidham</p>
-                    <p><span>Course</span>: BSC</p>
-                    <p><span>Joining year</span>: 2023</p>
-                    <p><span>Roll no</span>: 45</p>
-                    <div>
-                        <button
-                            class="px-4 py-1 bg-blue-600 text-white rounded"
-                        >
-                            Update
-                        </button>
-                        <button class="px-4 py-1 bg-red-600 text-white rounded">
-                            Delete
-                        </button>
-                    </div>
-                </div>
+            <section class="p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach($students as $student)
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg border border-gray-200">
+                    <dl>
+                        <div class="bg-gray-100 px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">ID</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->id }}</dd>
+                        </div>
+                        
+                        <div class="bg-white px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">Name</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->full_name }}</dd>
+                        </div>
 
-                <div class="p-2 bg-white rounded">
-                    <p><span>Name</span>: John Doe</p>
-                    <p><span>Date of birth</span>: 01-01-2000</p>
-                    <p><span>Gender</span>: Male</p>
-                    <p><span>Phone</span>: 1234567890</p>
-                    <p><span>City</span>: Gandhidham</p>
-                    <p><span>Course</span>: BSC</p>
-                    <p><span>Joining year</span>: 2023</p>
-                    <p><span>Roll no</span>: 45</p>
-                    <div>
-                        <button
-                            class="px-4 py-1 bg-blue-600 text-white rounded"
-                        >
-                            Update
-                        </button>
-                        <button class="px-4 py-1 bg-red-600 text-white rounded">
-                            Delete
-                        </button>
-                    </div>
-                </div>
+                        <div class="bg-gray-100 px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">DOB</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->dob }}</dd>
+                        </div>
+                        
+                        <div class="bg-white px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">Phone</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->phone }}</dd>
+                        </div>
 
-                <div class="p-2 bg-white rounded">
-                    <p><span>Name</span>: John Doe</p>
-                    <p><span>Date of birth</span>: 01-01-2000</p>
-                    <p><span>Gender</span>: Male</p>
-                    <p><span>Phone</span>: 1234567890</p>
-                    <p><span>City</span>: Gandhidham</p>
-                    <p><span>Course</span>: BSC</p>
-                    <p><span>Joining year</span>: 2023</p>
-                    <p><span>Roll no</span>: 45</p>
-                    <div>
-                        <button
-                            class="px-4 py-1 bg-blue-600 text-white rounded"
-                        >
-                            Update
-                        </button>
-                        <button class="px-4 py-1 bg-red-600 text-white rounded">
-                            Delete
-                        </button>
-                    </div>
-                </div>
+                        <div class="bg-gray-100 px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">City</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->city }}</dd>
+                        </div>
+                        
+                        <div class="bg-white px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">Course</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->course }}</dd>
+                        </div>
 
-                <div class="p-2 bg-white rounded">
-                    <p><span>Name</span>: John Doe</p>
-                    <p><span>Date of birth</span>: 01-01-2000</p>
-                    <p><span>Gender</span>: Male</p>
-                    <p><span>Phone</span>: 1234567890</p>
-                    <p><span>City</span>: Gandhidham</p>
-                    <p><span>Course</span>: BSC</p>
-                    <p><span>Joining year</span>: 2023</p>
-                    <p><span>Roll no</span>: 45</p>
-                    <div>
-                        <button
-                            class="px-4 py-1 bg-blue-600 text-white rounded"
-                        >
+                        <div class="bg-gray-100 px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">Joining Year</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->joining_year }}</dd>
+                        </div>
+                        
+                        <div class="bg-white px-4 py-1 grid grid-cols-3 gap-4">
+                            <dt class="text-sm font-medium text-gray-500">Roll No</dt>
+                            <dd class="mt-1 text-sm text-gray-900 col-span-2">{{ $student->roll_no }}</dd>
+                        </div>
+                    </dl>
+                
+                    <div class="bg-white px-4 py-3 sm:px-6 flex flex-row-reverse gap-3 border-t border-gray-200">
+                        <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Update
                         </button>
-                        <button class="px-4 py-1 bg-red-600 text-white rounded">
+                        
+                        <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             Delete
                         </button>
                     </div>
                 </div>
-
-                <div class="p-2 bg-white rounded">
-                    <p><span>Name</span>: John Doe</p>
-                    <p><span>Date of birth</span>: 01-01-2000</p>
-                    <p><span>Gender</span>: Male</p>
-                    <p><span>Phone</span>: 1234567890</p>
-                    <p><span>City</span>: Gandhidham</p>
-                    <p><span>Course</span>: BSC</p>
-                    <p><span>Joining year</span>: 2023</p>
-                    <p><span>Roll no</span>: 45</p>
-                    <div>
-                        <button
-                            class="px-4 py-1 bg-blue-600 text-white rounded"
-                        >
-                            Update
-                        </button>
-                        <button class="px-4 py-1 bg-red-600 text-white rounded">
-                            Delete
-                        </button>
-                    </div>
-                </div>
+                @endforeach
             </section>
         </main>
     </body>

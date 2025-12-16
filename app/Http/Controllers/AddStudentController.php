@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\students;
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class AddStudentController extends Controller
@@ -10,7 +10,7 @@ class AddStudentController extends Controller
     public function AddStudent(Request $req)
     {
         if($req->submitBtn){
-            $solitsStudent = new students();
+            $solitsStudent = new Students();
 
             $fname = $req->name;
             $dob = $req->dob;
@@ -33,5 +33,10 @@ class AddStudentController extends Controller
             $solitsStudent->save();
             return redirect('/');
         }
+    }
+
+    public function GetStudent(Request $req){
+        $students = Students::all();
+        return view('home', compact('students'));
     }
 }

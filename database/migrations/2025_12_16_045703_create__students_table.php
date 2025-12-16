@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("full_name", 50);
             $table->date("dob");
             $table->string("gender", 10);
-            $table->integer("phone");
+            $table->string("phone", 15);
             $table->string("city", 20);
             $table->string("course", 10);
             $table->integer("joining_year");
