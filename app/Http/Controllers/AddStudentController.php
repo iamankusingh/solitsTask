@@ -62,4 +62,10 @@ class AddStudentController extends Controller
 
         return redirect('/')->with('success', 'Student updated');
     }
+
+    // Delete
+    public function delete(Request $req, $id) {
+        Students::where("id", $id)->delete();
+        return back();
+    }
 }

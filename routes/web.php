@@ -13,3 +13,5 @@ Route::post('/addstudent', [AddStudentController::class, 'AddStudent']);
 
 Route::get('/student/{student}/edit', [AddStudentController::class, 'edit']);
 Route::put('/student/{student}', [AddStudentController::class, 'update']);
+
+Route::get('/delete/{student}', [AddStudentController::class, 'delete']);
