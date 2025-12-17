@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Student Management - Solits</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.1.13/lib.min.js">
     </head>
 
     <body class="bg-gray-100 text-black cursor-default">
