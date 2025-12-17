@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Student Management - Solits</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.1.13/lib.min.js">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.1.13/lib.min.js" integrity="sha512-LBqpfYKfymp3VEoHOQharES5j6UyXzUP0Td5jk5j1Ekm9tsbAoGUi5VaGA+0gdAlqKvAUb+7iFBe6qQQ7Jwk0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
 
     <body class="bg-gray-100 text-black cursor-default">
